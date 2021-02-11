@@ -1,0 +1,54 @@
+//default
+/* {
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "wdio",
+      "env": {},
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "wdio.conf.js",
+        "--spec",
+      ],
+      "cwd": "${workspaceFolder}",
+      "autoAttachChildProcesses": true,
+      "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+      "console": "integratedTerminal"
+    }
+  ]
+} */
+//working debug when execArgv enabled in wdio.conf.js
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "wdio",
+        "type": "node",
+        "request": "launch",
+        //"port": 5859,
+        "timeout": 1000000,
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/wdio",
+        "cwd": "${workspaceRoot}",
+        "console": "integratedTerminal",
+        "args": [
+          "wdio.conf.js",
+          "--spec"
+          // "--spec main.js" will be passed to your executable as
+          // "wdio '--spec main.js'" (which isn't what you want)
+        ],
+        "env": {
+          "DEBUG": "1"
+          // use an environment variable to be able
+          // to toggle debug mode on and off
+        },
+        "outFiles": ["${workspaceFolder}/bin/**/*.js"]
+      }
+    ]
+  }
